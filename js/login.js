@@ -9,12 +9,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         return;
     }
 
-    
-    alert("Login enviado: " + usuario);
-}); 
-document.getElementById("login-button").addEventListener("click", function() {
-  const params = new URLSearchParams(window.location.search);
-  const redirect = params.get("redirect") || "index.html";
-  window.location.replace(redirect);
-  sessionStorage.setItem("loggedIn", "true");
-}
+    // Aquí rediriges después de validar
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get("redirect") || "index.html";
+    sessionStorage.setItem("loggedIn", "true");
+    window.location.replace(redirect);
+});
