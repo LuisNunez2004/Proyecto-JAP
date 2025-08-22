@@ -11,4 +11,10 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     
     alert("Login enviado: " + usuario);
-});
+}); 
+document.getElementById("login-button").addEventListener("click", function() {
+  const params = new URLSearchParams(window.location.search);
+  const redirect = params.get("redirect") || "index.html";
+  window.location.replace(redirect);
+  sessionStorage.setItem("loggedIn", "true");
+}
