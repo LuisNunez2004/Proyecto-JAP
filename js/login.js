@@ -1,20 +1,17 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault(); 
-
     const usuario = document.getElementById("usuario").value.trim();
     const password = document.getElementById("password").value.trim();
-
+    const redirect = "index.html";
+  
     if (usuario === "" || password === "") {
-        alert("Por favor, complete todos los campos.");
-        return;
+      alert("Por favor, complete todos los campos.");
+      return;
     }
-
-    
-    alert("Login enviado: " + usuario);
+    else {
+      window.location.replace(redirect);
+      sessionStorage.setItem("usuario", usuario);
+      sessionStorage.setItem("loggedIn", "true");
+      
+    }
 }); 
-document.getElementById("login-button").addEventListener("click", function() {
-  const params = new URLSearchParams(window.location.search);
-  const redirect = params.get("redirect") || "index.html";
-  window.location.replace(redirect);
-  sessionStorage.setItem("loggedIn", "true");
-}
